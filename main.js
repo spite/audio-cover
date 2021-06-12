@@ -20,8 +20,6 @@ function getData() {
   request.responseType = "arraybuffer";
 
   request.onload = () => {
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
     var audioData = request.response;
     context.decodeAudioData(audioData, (buffer) => {
       const data = buffer.getChannelData(0);
@@ -55,7 +53,7 @@ a.addEventListener("loadedmetadata", (e) => {
   duration = e.target.duration;
   e.target.pause();
   delete e.target;
-  //fetchData();
+  // fetchData();
   getData();
 });
 
